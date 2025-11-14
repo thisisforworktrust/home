@@ -24,7 +24,7 @@
 <div class="projects" id="projects"></div>
 
 <script>
-// Super simple: just call addProject(url, description)
+// Container for projects
 const container = document.getElementById("projects");
 
 function addProject(url, description = "") {
@@ -36,9 +36,10 @@ function addProject(url, description = "") {
   const name = pathParts[pathParts.length - 1].replace(/-/g, ' ');
   const title = name.charAt(0).toUpperCase() + name.slice(1);
 
-  // Create iframe preview
+  // Create sandboxed iframe preview
   const iframe = document.createElement("iframe");
   iframe.src = url;
+  iframe.setAttribute("sandbox", "allow-scripts allow-same-origin"); // BLOCK popups, new tabs, alerts
 
   // Create link
   const link = document.createElement("a");
@@ -62,12 +63,13 @@ function addProject(url, description = "") {
   container.appendChild(projectDiv);
 }
 
-// ✅ Add your projects below (super easy)
+// ✅ Add your projects below
 addProject("https://thisisforworktrust.github.io/shooym-unblocked-games/", "My unblocked game site.");
 addProject("https://thisisforworktrust.github.io/gnpong/", "The worst way to get to gn-math");
 addProject("https://thisisforworktrust.github.io/67/", "The worst way to tell time");
-addProject("https://thisisforworktrust.github.io/syllbolcounter/", "syllbol counter ik i misspelled syllbol");
-addProject("https://thisisforworktrust.github.io/htmlsrcscaner/", "used to get the src url from html code good for if you ctrl s a webpage and save html only");
+addProject("https://thisisforworktrust.github.io/syllbolcounter/", "Syllbol counter (yes, misspelled)");
+addProject("https://thisisforworktrust.github.io/htmlsrcscaner/", "Used to get the src URL from HTML code (good for ctrl+s saved pages).");
+
 </script>
 
 </body>
